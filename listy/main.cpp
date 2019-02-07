@@ -4,13 +4,15 @@
 int main() {
 	list<int> list_of_ints;
 	list_of_ints.push(1);
-	list_of_ints.push_front(6);
-	list_of_ints.insert(1, 10);
+	list_of_ints.push(5);
+	list_of_ints.push(10);
 
-	for(int i = 0; i < list_of_ints.size(); i++)
-		std::cout << list_of_ints[i] << " ";
+	for (auto it = list_of_ints.begin(); it != list_of_ints.end(); it++) {
+		std::cout << *it << " ";
+	}
 	std::cout << "\n";
 
 	system("PAUSE");
+
 	return 0;
 }
