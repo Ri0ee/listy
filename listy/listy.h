@@ -79,6 +79,10 @@ template<class TL>
 class list {
 public:
 	list() {}
+	list(list& list_) {
+		for (auto it = list_.begin(); it != list_.end(); it++) 
+			push(*it);
+	}
 	~list() {}
 
 	// Push data to the end of the list

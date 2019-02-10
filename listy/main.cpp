@@ -12,6 +12,13 @@ int main() {
 	}
 	std::cout << "\n";
 
+	list<int> second_list(list_of_ints);
+
+	for (auto it = second_list.begin(); it != second_list.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << "\n";
+
 	system("PAUSE");
 
 	return 0;
