@@ -59,6 +59,18 @@ public:
 		return m_element_ptr;
 	}
 
+	void swap_data(l_iterator<TI>& iterator_) {
+		TI temp_data = iterator_.element()->get_data();
+		iterator_.element()->get_data() = m_element_ptr->get_data();
+		m_element_ptr->get_data() = temp_data;
+	}
+
+	void swap(l_iterator<TI>& iterator_) {
+		l_element<TI>* temp_element_ptr = iterator_.element();
+		iterator_.element() = m_element_ptr;
+		m_element_ptr = temp_element_ptr;
+	}
+
 private:
 	l_element<TI>* m_element_ptr = nullptr;
 };
