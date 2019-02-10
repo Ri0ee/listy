@@ -4,9 +4,13 @@ template<class TE>
 class l_element {
 public:
 	l_element() {};
+
 	l_element(TE data_, l_element<TE>* next_element_ptr_) : m_data(data_), m_next_element_ptr(next_element_ptr_) {}
+
 	l_element(TE data_) : m_data(data_) {}
+
 	l_element(l_element<TE>* next_element_ptr_) : m_next_element_ptr(next_element_ptr_) {}
+
 	~l_element() {};
 
 	l_element<TE>*& next() {
@@ -26,10 +30,13 @@ template<class TI>
 class l_iterator {
 public:
 	l_iterator() {}
+
 	l_iterator(const l_iterator<TI>& iterator_) {
 		m_element_ptr = iterator_.element();
 	}
+
 	l_iterator(l_element<TI>* element_ptr_) : m_element_ptr(element_ptr_) {}
+
 	~l_iterator() {}
 
 	l_iterator<TI>& operator++() { // Prefix increment
@@ -79,14 +86,17 @@ template<class TL>
 class list {
 public:
 	list() {}
+
 	list(list& list_) {
 		for (auto it = list_.begin(); it != list_.end(); it++) 
 			push(*it);
 	}
+
 	list(l_iterator<TL> begin_iterator_, l_iterator<TL> end_iterator_) { // TODO: make end_iterator_ optional
 		for (auto it = begin_iterator_; it != end_iterator_; it++)
 			push(*it);
 	}
+
 	~list() {}
 
 	// Push data to the end of the list
