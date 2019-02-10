@@ -83,6 +83,10 @@ public:
 		for (auto it = list_.begin(); it != list_.end(); it++) 
 			push(*it);
 	}
+	list(l_iterator<TL> begin_iterator_, l_iterator<TL> end_iterator_) { // TODO: make end_iterator_ optional
+		for (auto it = begin_iterator_; it != end_iterator_; it++)
+			push(*it);
+	}
 	~list() {}
 
 	// Push data to the end of the list

@@ -13,8 +13,13 @@ int main() {
 	std::cout << "\n";
 
 	list<int> second_list(list_of_ints);
-
 	for (auto it = second_list.begin(); it != second_list.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << "\n";
+
+	list<int> third_list(++second_list.begin(), second_list.end());
+	for (auto it = third_list.begin(); it != third_list.end(); it++) {
 		std::cout << *it << " ";
 	}
 	std::cout << "\n";
