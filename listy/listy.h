@@ -92,7 +92,7 @@ public:
 			push(*it);
 	}
 
-	list(l_iterator<TL> begin_iterator_, l_iterator<TL> end_iterator_) { // TODO: make end_iterator_ optional
+	list(l_iterator<TL> begin_iterator_, l_iterator<TL> end_iterator_ = l_iterator<TL>(nullptr)) { 
 		for (auto it = begin_iterator_; it != end_iterator_; it++)
 			push(*it);
 	}

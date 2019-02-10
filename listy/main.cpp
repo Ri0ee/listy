@@ -24,6 +24,12 @@ int main() {
 	}
 	std::cout << "\n";
 
+	list<int> fourth_list(++third_list.begin());
+	for (auto it = fourth_list.begin(); it != fourth_list.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << "\n";
+
 	system("PAUSE");
 
 	return 0;
