@@ -220,6 +220,25 @@ public:
 		while (pop_front());
 	}
 
+	// Searches for the first appearance of data in list
+	l_iterator<TL> find_first(TL data_) {
+		for (auto it = begin(); it != end(); it++) {
+			if (*it == data_) return l_iterator<TL>(it);
+		}
+
+		return end();
+	}
+
+	// Searches for the last appearance of data in list
+	l_iterator<TL> find_last(TL data_) {
+		l_iterator<TL> temp_iterator = end();
+		for (auto it = begin(); it != end(); it++) {
+			if (*it == data_) temp_iterator = it;
+		}
+
+		return temp_iterator;
+	}
+
 	// Provides one element from the list
 	TL& operator[] (int index_) {
 		l_element<TL>* current_element = m_head;
@@ -252,6 +271,17 @@ public:
 	// Returns iterator of the element which stays before the tail
 	l_iterator<TL> pre_tail() {
 		return l_iterator<TL>(m_pre_tail);
+	}
+
+	// Returns distance between two iterators (amount of elements between them)
+	int distance(l_iterator<TL> begin_iterator_, l_iterator<TL> dest_iterator_) {
+		int counter = 0;
+		for (auto it = begin_iterator_; it != end(); it++) {
+			if (it == dest_iterator_) return counter;
+			counter++;
+		}
+
+		return -1;
 	}
 
 private:
