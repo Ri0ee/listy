@@ -5,9 +5,7 @@ class l_element {
 public:
 	l_element() {};
 
-	l_element(TE data_, l_element<TE>* next_element_ptr_) : m_data(data_), m_next_element_ptr(next_element_ptr_) {}
-
-	l_element(TE data_) : m_data(data_) {}
+	l_element(TE data_, l_element<TE>* next_element_ptr_ = nullptr) : m_data(data_), m_next_element_ptr(next_element_ptr_) {}
 
 	l_element(l_element<TE>* next_element_ptr_) : m_next_element_ptr(next_element_ptr_) {}
 
@@ -97,7 +95,9 @@ public:
 			push(*it);
 	}
 
-	~list() {}
+	~list() {
+		clear();
+	}
 
 	// Push data to the end of the list
 	void push(TL data_) {
@@ -238,14 +238,27 @@ public:
 
 		return temp_iterator;
 	}
+	
+	// Searches for the element with minimal value
+	l_iterator<TL> find_min(l_iterator<TL> begin_ = begin(), l_iterator<TL> end_ = end()) {
+		l_iterator<TL> current_min(begin_);
+		for (auto it = begin_; it != end_; it++) {
+			if (*current_min > *it) {
+				current_min = it;
+			}
+		}
+		return current_min;
+	}
 
-	// Provides one element from the list
-	TL& operator[] (int index_) {
-		l_element<TL>* current_element = m_head;
-		for (int index = 0; index < index_; index++) 
-			current_element = current_element->next();
-
-		return current_element->get_data();
+	// Searches for the element with highest value
+	l_iterator<TL> find_max(l_iterator<TL> begin_ = begin(), l_iterator<TL> end_ = end()) {
+		l_iterator<TL> current_max(begin_);
+		for (auto it = begin_; it != end_; it++) {
+			if (*current_max < *it) {
+				current_max = it;
+			}
+		}
+		return current_max;
 	}
 
 	// Returns amount of elements in list
