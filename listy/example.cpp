@@ -15,6 +15,5 @@ int main() {
 
 	std::cout << list_of_ints.distance(list_of_ints.begin(), list_of_ints.find_first(10)) << "\n";
 
-	system("PAUSE");
 	return 0;
 }
